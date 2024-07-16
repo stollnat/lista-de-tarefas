@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+<title>MinhasTarefas</title>
+<style> 
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+  body {
+   border: 7px solid aqua;
+   min-height: 100vh;
+   font-family: Arial, sans-serif;
+   display: flex;
+   flex-direction: column;
+   background: lightblue;
+  }
+
+  header {
+    color: black;
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: center;
+    padding: 5px 0;
+    
+  }
+
+  main {
+    background: lightblue;
+    padding: 25px;
+    border-radius: 10px;
+  }
+
+  main ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    list-style: none;
+  }
+
+  main li {
+    padding: 5px 0;
+  } 
+
+  footer {
+    display: flex;
+    padding-top: 6px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+  }
+
+footer input {
+  padding: 5px;
+}
+</style>
+</head>
+
+<body>
+  <header>
+    <h1>Tarefas</h1>
+  </header>
+
+  <main>
+    <ul></ul>
+  </main>
+
+   <footer>
+    <input>
+    <button onclick="add()">adicionar</button>
+   </footer>
+
+    <Script>
+
+        // estado da aplicação
+        const tarefas = ["Estudar HTML", "Estudar CSS", "Estudar JS"]
+        
+        // alteradores de estado da aplicação
+        function add() {
+         const input = document.querySelector("input") 
+         const tarefa = input.value
+         tarefas.push(tarefa)
+         input.value = ""
+         render()
+        }  
+         
+        // mostrar estado na tela 
+        function render() {
+          const ul = document.querySelector("ul") 
+          ul.innerHTML = null
+
+         tarefas.forEach(function (tarefa) {
+             const li = document.createElement("li")
+             li.innerText = tarefa
+             ul.appendChild(li)
+            })
+         }
+         
+         // iniciar
+        render()
+    </Script>
+</body>
+
+</html>
